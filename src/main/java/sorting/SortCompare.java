@@ -4,8 +4,10 @@ import java.util.Random;
 import sorting.elementary.Insertion;
 import sorting.elementary.Selection;
 import sorting.elementary.Shell;
+import sorting.elementary.SortingUtils;
 import sorting.mergesort.Merge;
 import sorting.quicksort.Quick;
+import sorting.priorityqueues.Heap;
 
 public class SortCompare {
 
@@ -28,9 +30,9 @@ public class SortCompare {
         if (alg.equals("Quick")) {
             Quick.sort(a);
         }
-//        if (alg.equals("Heap")) {
-//            Heap.sort(a);
-//        }
+        if (alg.equals("Heap")) {
+            Heap.sort(a);
+        }
         return timer.elapsedTime();
     }
 
@@ -53,6 +55,7 @@ public class SortCompare {
         String alg3 = "Shell";
         String alg4 = "Merge";
         String alg5 = "Quick";
+        String alg6 = "Heap";
         int N = 1000;
         int T = 100;
         double t1 = timeRandomInput(alg1, N, T);
@@ -60,12 +63,14 @@ public class SortCompare {
         double t3 = timeRandomInput(alg3, N, T);
         double t4 = timeRandomInput(alg4, N, T);
         double t5 = timeRandomInput(alg5, N, T);
+        double t6 = timeRandomInput(alg6, N, T);
 
         System.out.println(alg1 + " time is :" + t1);
         System.out.println(alg2 + " time is :" + t2);
         System.out.println(alg3 + " time is :" + t3);
         System.out.println(alg4 + " time is :" + t4);
         System.out.println(alg5 + " time is :" + t5);
+        System.out.println(alg6 + " time is :" + t6);
     }
 
 }
