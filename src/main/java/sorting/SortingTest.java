@@ -19,7 +19,6 @@ public class SortingTest {
     private Double[] s;
 
     private Double[] timeRandomInput(int N) {
-        double total = 0.0;
         Double[] a = new Double[N];
         for (int i = 0; i < N; i++) {
             a[i] = random.nextDouble();
@@ -72,8 +71,23 @@ public class SortingTest {
      */
     @Test
     public void testHeapSort() {
-        assertFalse(SortingUtils.isSorted(s));
+        int N = 1000;
+        Double[] a = new Double[N];
+        for (int i = 1; i < N; i++) {
+            a[i] = random.nextDouble();
+        }
+        assertFalse(isSortedHeap(a));
         Heap.sort(s);
-        assertTrue(SortingUtils.isSorted(s));
+        assertTrue(isSortedHeap(s));
+    }
+
+    private static boolean isSortedHeap(Comparable[] a) {
+        // 忽略第0个元素
+        for (int i = 2; i < a.length; i++) {
+            if (a[i].compareTo(a[i-1]) < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
