@@ -37,4 +37,23 @@ public class GraphTest {
             System.out.println();
         }
     }
+
+    @Test
+    public void testBreadthFirstPaths() {
+        int s = 0;
+        BreadthFirstPaths paths = new BreadthFirstPaths(graph, s);
+        for (int v = 0; v < graph.V(); v++) {
+            System.out.print(s + " to " + v + ": ");
+            if (paths.hasPathTo(v)) {
+                for (int x : paths.pathTo(v)) {
+                    if (x == s) {
+                        System.out.print(x);
+                    } else {
+                        System.out.print("-" + x);
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
 }
